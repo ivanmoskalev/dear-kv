@@ -1,7 +1,7 @@
 # XnKV
 > this library is part of [xn](https://github.com/ivanmoskalev/xn) suite
 
-Lightweight, minimalistic key-value store designed for Swift applications. Handles high throughoutput, thread-safe via Structured Concurrency. It utilizes the brillian LMDB library under the hood.
+Minimalistic, thread-safe and fast key-value store for iOS / macOS. It utilizes the brilliant LMDB library under the hood. Public domain license.
 
 > [!NOTE]
 > It's known that LMDB doesn't work out of the box in macOS Sandbox due to mutex restrictions. This library accounts for that, disabling in-built LMDB locking, instead utilizing Swift actor model to provide synchronization.
