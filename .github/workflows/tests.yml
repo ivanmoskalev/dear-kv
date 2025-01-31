@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run unit tests
-        run: swift test -v --parallel --filter XnTemplateTests
+        run: swift test -v --parallel --filter XnKVTests
 
   performance-tests:
     runs-on: macos-15
@@ -21,4 +21,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run performance tests
-        run: swift test -v --filter XnTemplatePerformance -Xswiftc -O
+        run: swift test -v --filter XnKVPerformance -Xswiftc -O

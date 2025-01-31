@@ -4,17 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "XnTemplate",
+    name: "XnKV",
     platforms: [
         .macOS(.v10_15),
         .iOS(.v15)
     ],
     products: [
-        .library(name: "XnTemplate", targets: ["XnTemplate"]),
+        .library(name: "XnKV", targets: ["XnKV"]),
+        .library(name: "liblmdb", targets: ["liblmdb"])
     ],
     targets: [
-        .target(name: "XnTemplate"),
-        .testTarget(name: "XnTemplateTests", dependencies: ["XnTemplate"]),
-        .testTarget(name: "XnTemplatePerformance", dependencies: ["XnTemplate"]),
+        .target(name: "XnKV", dependencies: ["liblmdb"]),
+        .target(name: "liblmdb"),
+        .testTarget(name: "XnKVTests", dependencies: ["XnKV"]),
+        .testTarget(name: "XnKVPerformance", dependencies: ["XnKV"]),
     ]
 )
