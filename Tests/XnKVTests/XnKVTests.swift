@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import XnKV
+@testable import DearKV
 
 @Test
 func testPutAndGet() async throws {
@@ -57,8 +57,8 @@ func testConcurrentWrites() async throws {
     }
 }
 
-func create() throws -> XnKV {
-    let dbPath = FileManager.default.temporaryDirectory.appendingPathComponent("xnkv_\(UUID().uuidString)").path
+func create() throws -> DearKV {
+    let dbPath = FileManager.default.temporaryDirectory.appendingPathComponent("dearkv_\(UUID().uuidString)").path
     try FileManager.default.createDirectory(atPath: dbPath, withIntermediateDirectories: true)
-    return try XnKV(path: dbPath)
+    return try DearKV(path: dbPath)
 }

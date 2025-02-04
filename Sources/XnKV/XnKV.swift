@@ -1,6 +1,6 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// XnKV.swift
-// Part of the xn suite <https://github.com/ivanmoskalev/xn>.
+// DearKV.swift
+// Part of the dear suite <https://github.com/ivanmoskalev/xn>.
 // This code is released into the public domain under The Unlicense.
 // For details, see <https://unlicense.org/>.
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -8,16 +8,16 @@
 import Foundation
 import liblmdb
 
-public final actor XnKV {
+public final actor DearKV {
     private let env: LMDBEnvironment
     private let dbi: MDB_dbi
 
     public init(path: String, maxDBs: UInt32 = 1) throws {
         self.env = try LMDBEnvironment(path: path)
         var txn: OpaquePointer?
-        guard mdb_txn_begin(env.env, nil, 0, &txn) == 0 else { throw XnKVError.txnCreationFailed }
+        guard mdb_txn_begin(env.env, nil, 0, &txn) == 0 else { throw DearKVError.txnCreationFailed }
         var dbi: MDB_dbi = 0
-        guard mdb_dbi_open(txn, nil, 0, &dbi) == 0 else { throw XnKVError.dbiOpenFailed }
+        guard mdb_dbi_open(txn, nil, 0, &dbi) == 0 else { throw DearKVError.dbiOpenFailed }
         mdb_txn_commit(txn)
         self.dbi = dbi
     }
@@ -57,8 +57,8 @@ final class LMDBEnvironment {
     
     init(path: String) throws {
         var env: OpaquePointer?
-        guard mdb_env_create(&env) == 0 else { throw XnKVError.envCreationFailed }
-        guard mdb_env_open(env, path, UInt32(MDB_NOLOCK), S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH | S_IRWXU) == 0 else { throw XnKVError.envOpenFailed }
+        guard mdb_env_create(&env) == 0 else { throw DearKVError.envCreationFailed }
+        guard mdb_env_open(env, path, UInt32(MDB_NOLOCK), S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH | S_IRWXU) == 0 else { throw DearKVError.envOpenFailed }
         self.env = env
     }
     
@@ -69,7 +69,7 @@ final class LMDBEnvironment {
     }
 }
 
-public enum XnKVError: Error {
+public enum DearKVError: Error {
     case envCreationFailed
     case configFailed
     case envOpenFailed

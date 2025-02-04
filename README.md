@@ -1,5 +1,5 @@
-# XnKV
-> this library is part of [xn](https://github.com/ivanmoskalev/xn) suite
+# DearKV
+> this library is part of [dear](https://github.com/ivanmoskalev/dear) suite
 
 Minimalistic, thread-safe and fast key-value store for iOS / macOS. It utilizes the brilliant LMDB library under the hood. Public domain license.
 
@@ -19,5 +19,5 @@ Please note that contributions are accepted if they align with the vision for th
 
 Since this library vendors LMDB source code, it has two licenses applicable to it.
 
-- `XnKV` Swift code: This project (and the rest of the xn suite) is released into the public domain under [The Unlicense](https://unlicense.org/). Do whatever you want with it however you want.
+- `DearKV` Swift code: This project (and the rest of the Dear suite) is released into the public domain under [The Unlicense](https://unlicense.org/). Do whatever you want with it however you want.
 - `LMDB` (`Sources/liblmdb`): Bundled under the OpenLDAP Public License 2.8.

@@ -4,19 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "XnKV",
+    name: "DearKV",
     platforms: [
         .macOS(.v10_15),
         .iOS(.v15)
     ],
     products: [
-        .library(name: "XnKV", targets: ["XnKV"]),
+        .library(name: "DearKV", targets: ["DearKV"]),
         .library(name: "liblmdb", targets: ["liblmdb"])
     ],
     targets: [
-        .target(name: "XnKV", dependencies: ["liblmdb"]),
+        .target(name: "DearKV", dependencies: ["liblmdb"]),
         .target(name: "liblmdb"),
-        .testTarget(name: "XnKVTests", dependencies: ["XnKV"]),
-        .testTarget(name: "XnKVPerformance", dependencies: ["XnKV"]),
+        .testTarget(name: "DearKVTests", dependencies: ["DearKV"]),
+        .testTarget(name: "DearKVPerformance", dependencies: ["DearKV"]),
     ]
 )

@@ -1,13 +1,13 @@
 import XCTest
-import XnKV
+import DearKV
 
 final class PerformanceTests: XCTestCase {
-    private var kvStore: XnKV!
-    private let dbPath = FileManager.default.temporaryDirectory.appendingPathComponent("xnkv_perf_\(UUID().uuidString)")
+    private var kvStore: DearKV!
+    private let dbPath = FileManager.default.temporaryDirectory.appendingPathComponent("dearkv_perf_\(UUID().uuidString)")
     
     override func setUpWithError() throws {
         try FileManager.default.createDirectory(at: dbPath, withIntermediateDirectories: true)
-        kvStore = try XnKV(path: dbPath.path)
+        kvStore = try DearKV(path: dbPath.path)
     }
     
     override func tearDownWithError() throws {
